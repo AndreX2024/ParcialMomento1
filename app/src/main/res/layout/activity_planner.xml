@@ -139,7 +139,7 @@
             app:buttonTint="@color/black" />
 
         <Button
-            android:id="@+id/bt_login_registration"
+            android:id="@+id/bt_calculate"
             style="@style/ButtonRounded"
             android:layout_width="match_parent"
             android:layout_height="72dp"
