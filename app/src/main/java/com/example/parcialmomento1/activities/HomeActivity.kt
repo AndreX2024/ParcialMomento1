@@ -1,15 +1,20 @@
-package com.example.parcialmomento1
+package com.example.parcialmomento1.activities
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
+import com.example.parcialmomento1.R
 
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var button_Start : Button
     private lateinit var tv_registrationHome : TextView
+
+    private lateinit var sharedPreferences: SharedPreferences
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +35,18 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this,RegistrationActivity::class.java)
             startActivity(intent)
             finish()
+        }
+
+        sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE)
+
+        // Datos ya registrados para iniciar sesión
+        sharedPreferences.edit() {
+            putString("Nombres", "Carlos Andrés")
+            putString("Apellidos", "Castaño Gaitán")
+            putString("Correo Eléctronico", "cacastano@ucompensar.edu.co")
+            putString("Programa", "Ingenieria de Software")
+            putString("Semestre", "7")
+            putString("Contraseña", "Pruebas123")
         }
     }
 }

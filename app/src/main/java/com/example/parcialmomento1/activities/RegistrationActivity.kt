@@ -1,4 +1,4 @@
-package com.example.parcialmomento1
+package com.example.parcialmomento1.activities
 
 import android.content.Intent
 import android.content.SharedPreferences
@@ -10,14 +10,15 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import java.util.prefs.Preferences
+import com.example.parcialmomento1.R
 
 class RegistrationActivity : AppCompatActivity() {
 
     private lateinit var editText_username : EditText
     private lateinit var editText_userlastname : EditText
     private lateinit var editText_email : EditText
-    private lateinit var editText_phone : EditText
+    private lateinit var editText_program : EditText
+    private lateinit var editText_semester : EditText
     private lateinit var editText_password : EditText
     private lateinit var editText_confirmPassword : EditText
     private lateinit var checkBox_terms: CheckBox
@@ -39,7 +40,8 @@ class RegistrationActivity : AppCompatActivity() {
         editText_username = findViewById(R.id.et_username_registration)
         editText_userlastname = findViewById(R.id.et_userlastname_registration)
         editText_email = findViewById(R.id.et_email_registration)
-        editText_phone = findViewById(R.id.et_phone_registration)
+        editText_program = findViewById(R.id.et_program_registration)
+        editText_semester = findViewById(R.id.et_semester_registration)
         editText_password = findViewById(R.id.et_password_registration)
         editText_confirmPassword = findViewById(R.id.et_confirmPassword_registration)
         checkBox_terms = findViewById(R.id.cb_registration)
@@ -74,12 +76,12 @@ class RegistrationActivity : AppCompatActivity() {
         val nombres = editText_username.text.toString().trim()
         val apellidos = editText_userlastname.text.toString().trim()
         val email = editText_email.text.toString().trim()
-        val phone = editText_phone.text.toString().trim()
+        val program = editText_program.text.toString().trim()
+        val semester = editText_semester.text.toString().trim()
         val password = editText_password.text.toString().trim()
         val confirmPassword = editText_confirmPassword.text.toString().trim()
         val isChecked = checkBox_terms.isChecked
 
-        val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+".toRegex()
         val passwordPattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d).{6,}\$".toRegex()
 
         if (nombres.isEmpty()) {
@@ -95,16 +97,15 @@ class RegistrationActivity : AppCompatActivity() {
         if (email.isEmpty()) {
             Toast.makeText(this, "El campo correo eléctronico es requerido", Toast.LENGTH_SHORT).show()
             return false
-        } else if (!email.matches(emailPattern)) {
-            Toast.makeText(this, "Correo electrónico no válido", Toast.LENGTH_SHORT).show()
+        }
+
+        if (program.isEmpty()) {
+            Toast.makeText(this, "El campo programa es requerido", Toast.LENGTH_SHORT).show()
             return false
         }
 
-        if (phone.isEmpty()) {
-            Toast.makeText(this, "El campo teléfono es requerido", Toast.LENGTH_SHORT).show()
-            return false
-        } else if (phone.length < 10) {
-            Toast.makeText(this, "El número de teléfono debe tener al menos 10 dígitos", Toast.LENGTH_SHORT).show()
+        if (semester.isEmpty()) {
+            Toast.makeText(this, "El campo semestre es requerido", Toast.LENGTH_SHORT).show()
             return false
         }
 
@@ -138,7 +139,8 @@ class RegistrationActivity : AppCompatActivity() {
         editor.putString("Nombres", editText_username.text.toString().trim())
         editor.putString("Apellidos", editText_userlastname.text.toString().trim())
         editor.putString("Correo Eléctronico", editText_email.text.toString().trim())
-        editor.putString("Teléfono", editText_phone.text.toString().trim())
+        editor.putString("Programa", editText_program.text.toString().trim())
+        editor.putString("Semestre", editText_semester.text.toString().trim())
         editor.putString("Contraseña", editText_confirmPassword.text.toString().trim())
         editor.apply()
 

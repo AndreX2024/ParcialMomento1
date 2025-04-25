@@ -18,4 +18,10 @@
     <string name="instructional_message_verify">Ingresa el código de 4 dígitos que enviamos a tu email.</string>
     <string name="start_training">Planificador</string>
     <string name="instructional_message_planner">Por favor ingresa los siguientes datos:</string>
+    <string name="mis_datos">Mis datos</string>
+    <string name="analisis">Análisis</string>
+    <string name="historico">Histórico</string>
+    <string name="bienvenido">Bienvenido</string>
+    <string name="open_drawer">Abrir</string>
+    <string name="close_drawer">Cerrar</string>
 </resources>

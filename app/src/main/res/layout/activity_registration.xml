@@ -75,15 +75,24 @@
             android:layout_marginTop="20dp"/>
 
         <EditText
-            android:id="@+id/et_phone_registration"
+            android:id="@+id/et_program_registration"
             style="@style/EditText"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
             android:ems="10"
             android:fontFamily="@font/annapurna_sil"
-            android:hint="Teléfono"
-            android:inputType="phone" />
+            android:hint="Programa Academico"/>
+
+        <EditText
+            android:id="@+id/et_semester_registration"
+            style="@style/EditText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:fontFamily="@font/annapurna_sil"
+            android:hint="Semestre"/>
 
         <EditText
             android:id="@+id/et_password_registration"

@@ -1,6 +1,5 @@
-package com.example.parcialmomento1
+package com.example.parcialmomento1.activities
 
-import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +8,7 @@ import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.parcialmomento1.R
 
 class PlannerActivity : AppCompatActivity() {
 
@@ -35,9 +35,6 @@ class PlannerActivity : AppCompatActivity() {
         Log.d("RegistrationActivity", "onCreate: Inicializando el Activity de Registro")
 
         editTextWeight = findViewById(R.id.et_weight);
-        checkBoxPhysicalCondition = findViewById(R.id.cb_physicalCondition);
-        checkBoxPhysicalCondition2 = findViewById(R.id.cb_physicalCondition2);
-        checkBoxPhysicalCondition3= findViewById(R.id.cb_physicalCondition3);
         checkBoxObjetive= findViewById(R.id.cb_objetive);
         checkBoxObjetive2= findViewById(R.id.cb_objetive2);
         checkBoxObjetive3= findViewById(R.id.cb_objetive3);
@@ -46,7 +43,7 @@ class PlannerActivity : AppCompatActivity() {
 
         buttonCalculate.setOnClickListener {
             if(validarCampos()) {
-                
+
             }
         }
 

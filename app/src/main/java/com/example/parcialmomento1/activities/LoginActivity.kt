@@ -1,17 +1,16 @@
-package com.example.parcialmomento1
+package com.example.parcialmomento1.activities
 
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.text.InputType
-import android.util.Log
-import android.view.MotionEvent
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.parcialmomento1.R
+import com.example.parcialmomento1.fragments.MisDatosFragment
 
 class LoginActivity : AppCompatActivity() {
 
@@ -40,7 +39,7 @@ class LoginActivity : AppCompatActivity() {
             if (validarCamposLogin()) {
                 Toast.makeText(this,"Ingreso Concedido. Bienvenido!", Toast.LENGTH_SHORT).show()
 
-                val intent = Intent(this,ProfileActivity::class.java)
+                val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 finish()
             }
@@ -66,15 +65,11 @@ class LoginActivity : AppCompatActivity() {
         val password = editTextPassword.text.toString().trim()
         val passwordRegistrada = sharedPreferences.getString("Contraseña", "")
 
-        val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+".toRegex()
         val passwordPattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d).{6,}\$".toRegex()
 
 
         if (email.isEmpty()) {
             Toast.makeText(this, "El campo correo eléctronico es requerido", Toast.LENGTH_SHORT).show()
-            return false
-        } else if (!email.matches(emailPattern)) {
-            Toast.makeText(this, "Correo electrónico no válido", Toast.LENGTH_SHORT).show()
             return false
         }
 
